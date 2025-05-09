@@ -1,0 +1,8 @@
+# 모듈 폴더 무시
+node_modules/
+
+# env 파일 무시
+*.env
+
+# 빌드 폴더 무시
+build/
