@@ -10,7 +10,7 @@ import { IsDate, IsEmail, IsOptional, IsString } from "class-validator";
  *       required:
  *         - name
  *         - email
- *         - password
+ *         - degree
  *       properties:
  *         name:
  *           type: string
@@ -19,12 +19,21 @@ import { IsDate, IsEmail, IsOptional, IsString } from "class-validator";
  *           type: string
  *           format: email
  *           example: "user@example.com"
- *         password:
+ *         profileText:
  *           type: string
- *           example: "1234"
+ *           example: "안녕하세요!"
  *         githubUrl:
  *           type: string
  *           example: "https://github.com/example"
+ *         imageUrl:
+ *           type: string
+ *           example: ""
+ *         interests:
+ *           type: string
+ *           example: ""
+ *         degree:
+ *           type: string
+ *           example: ""
  */
 export class MemberCreateRequestDto {
   @IsString()
@@ -33,12 +42,24 @@ export class MemberCreateRequestDto {
   @IsEmail()
   email!: string;
 
+  @IsOptional()
   @IsString()
-  password!: string;
+  profileText?: string;
 
   @IsOptional()
   @IsString()
   githubUrl?: string;
+
+  @IsOptional()
+  @IsString()
+  imageUrl?: string;
+
+  @IsOptional()
+  @IsString()
+  interests?: string;
+
+  @IsString()
+  degree!: string;
 }
 
 //READ
@@ -47,6 +68,7 @@ export class MemberCreateRequestDto {
  * components:
  *   schemas:
  *     MemberReadRequestDto:
+ *       description: "이거 수정해야함"
  *       type: object
  *       required:
  *         - name
@@ -90,9 +112,21 @@ export class MemberReadRequestDto {
  *           type: string
  *           format: email
  *           example: "example@example.com"
- *         password:
+ *         profileText:
  *           type: string
- *           example: "1234"
+ *           example: "안녕하세요!"
+ *         githubUrl:
+ *           type: string
+ *           example: "https://github.com/example"
+ *         imageUrl:
+ *           type: string
+ *           example: ""
+ *         interests:
+ *           type: string
+ *           example: ""
+ *         degree:
+ *           type: string
+ *           example: ""
  */
 export class MemberUpdateRequestDto {
   @IsOptional()
@@ -105,7 +139,23 @@ export class MemberUpdateRequestDto {
 
   @IsOptional()
   @IsString()
-  password?: string;
+  profileText?: string;
+
+  @IsOptional()
+  @IsString()
+  githubUrl?: string;
+
+  @IsOptional()
+  @IsString()
+  imageUrl?: string;
+
+  @IsOptional()
+  @IsString()
+  interests?: string;
+
+  @IsOptional()
+  @IsString()
+  degree?: string;
 }
 
 //DELETE
